@@ -1,11 +1,50 @@
 .nav {
     grid-area: n;
-    background-color: green;
     padding: 20px;
+    background-color: white;
+}
+
+.item {
+    padding-bottom: 20px;
+}
+
+.profile span {
+    background: url("/010-user.svg") 0 2px / 20px 20px no-repeat;
+    width: 200px;
+    padding-left: 25px;
+    font-size: 1.2em;
+}
+
+.dialogs span {
+    background: url("/009-message.svg") 0 2px / 20px 20px no-repeat;
+    width: 200px;
+    padding-left: 25px;
+    font-size: 1.2em;
+}
+
+.users span {
+    background: url("/017-friends.svg") 0 2px / 20px 20px no-repeat;
+    width: 200px;
+    padding-left: 25px;
+    font-size: 1.2em;
+}
+
+.music span {
+    background: url("/music.svg") 0 2px / 20px 20px no-repeat;
+    width: 200px;
+    padding-left: 25px;
+    font-size: 1.2em;
+}
+
+.settings span {
+    background: url("/settings.svg") 0 2px / 20px 20px no-repeat;
+    width: 200px;
+    padding-left: 25px;
+    font-size: 1.2em;
 }
 
 .item a {
-    color: white;
+    color: #adaea9;
     text-decoration: none;
 }
 

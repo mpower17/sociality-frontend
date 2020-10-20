@@ -1,24 +1,40 @@
 import React from 'react';
-import classes from './Navbar.module.css'
+import styles from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <nav className={classes.nav}>
-            <div className={classes.item}>
-                <NavLink to='/profile' activeClassName={classes.active}>Profile</NavLink>
+        <nav className={styles.nav}>
+            <div className={styles.item + " " + styles.profile}>
+                <NavLink to='/profile' activeClassName={styles.active}>
+                    <span className={styles.leftIcon}/>
+                    Profile
+                </NavLink>
             </div>
-            <div className={classes.item}>
-                <NavLink to='/dialogs' activeClassName={classes.active}>Messages</NavLink>
+            <div className={styles.item + " " + styles.dialogs}>
+                <NavLink to='/dialogs' activeClassName={styles.active}>
+                    <span className={styles.leftIcon}/>
+                    Messages
+                </NavLink>
+
             </div>
-            <div className={classes.item}>
-                <NavLink to='/users' activeClassName={classes.active}>Users</NavLink>
+            <div className={styles.item + " " + styles.users}>
+                <NavLink to='/users' activeClassName={styles.active}>
+                    <span className={styles.leftIcon}/>
+                    Users
+                </NavLink>
             </div>
-            <div className={classes.item}>
-                <NavLink to='/music' activeClassName={classes.active}>Music</NavLink>
+            <div className={styles.item + " " + styles.music}>
+                <NavLink to='/music' activeClassName={styles.active}>
+                    <span className={styles.leftIcon}/>
+                    Music
+                </NavLink>
             </div>
-            <div className={classes.item}>
-                <NavLink to='/settings' activeClassName={classes.active}>Settings</NavLink>
+            <div className={styles.item + " " + styles.settings}>
+                <NavLink to='/settings' activeClassName={styles.active}>
+                    <span className={styles.leftIcon}/>
+                    Settings
+                </NavLink>
             </div>
         </nav>
     )

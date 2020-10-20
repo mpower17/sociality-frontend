@@ -1,12 +1,10 @@
 import {actions} from "../actions/actions";
 
 let initialState = {
-    users: [
-        {id: 1, followed: true, fullName: "Dimitry", status: "yo", location: {country: "Ukraine", city: "Kiev"}, photoUrl: 'https://i.imgur.com/ISw0Bxz.jpeg'},
-        {id: 2, followed: false, fullName: "Maksim", status: "yo", location: {country: "Russia", city: "Moscow"}, photoUrl: 'https://i.imgur.com/ISw0Bxz.jpeg'},
-        {id: 3, followed: true, fullName: "Ivan", status: "yo", location: {country: "Ukraine", city: "Kiev"}, photoUrl: 'https://i.imgur.com/ISw0Bxz.jpeg'},
-    ],
-    newPostText: 'it'
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 let updateFollow = (state, action, followed) => {
@@ -22,6 +20,7 @@ let updateFollow = (state, action, followed) => {
 }
 
 export const usersReducer = (state = initialState, action) => {
+    debugger
     if (action.type === actions.FOLLOW) {
         return updateFollow(state, action, true);
     } else if (action.type === actions.UNFOLLOW) {
@@ -29,8 +28,18 @@ export const usersReducer = (state = initialState, action) => {
     } else if (action.type === actions.SET_USERS) {
         return {
             ...state,
-            users: [...state.users, ...action.users]
+            users: action.users
         };
+    } else if (action.type === actions.SET_CURRENT_PAGE) {
+        return {
+            ...state,
+            currentPage: action.currentPage
+        }
+    } else if (action.type === actions.SET_TOTAL_USERS_COUNT) {
+        return {
+            ...state,
+            totalUsersCount: action.totalUsersCount
+        }
     }
 
     return state;

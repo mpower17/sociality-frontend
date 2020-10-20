@@ -1,4 +1,4 @@
-export const setUsersAC = (userId) => ({
-    type: "UNFOLLOW",
-    userId: userId,
+export const setUsersAC = (users) => ({
+    type: "SET_USERS",
+    users: users,
 })
