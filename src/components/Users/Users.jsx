@@ -1,27 +1,9 @@
 import React from "react";
 import styles from './Users.module.css'
-import axios from 'axios';
 import userPhoto from '../../assets/images/user.jpeg';
 
 export class Users extends React.Component {
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-            });
-    }
-
-    setCurrentPage(p) {
-        this.props.setCurrentPage(p);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-            });
-    }
-
     render() {
-
         let pageSize = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
 
@@ -33,7 +15,7 @@ export class Users extends React.Component {
                 <div>
                     {pages.map((p) => {
                         return <span className={this.props.currentPage === p ? styles.selectedPage : null}
-                                     onClick={() => this.setCurrentPage(p)}>{p}</span>
+                                     onClick={() => this.props.onPageChange(p)}>{p}</span>
                     })}
                 </div>
                 {

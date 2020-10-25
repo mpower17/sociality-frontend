@@ -4,7 +4,8 @@ let initialState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 }
 
 let updateFollow = (state, action, followed) => {
@@ -20,7 +21,6 @@ let updateFollow = (state, action, followed) => {
 }
 
 export const usersReducer = (state = initialState, action) => {
-    debugger
     if (action.type === actions.FOLLOW) {
         return updateFollow(state, action, true);
     } else if (action.type === actions.UNFOLLOW) {
@@ -39,6 +39,11 @@ export const usersReducer = (state = initialState, action) => {
         return {
             ...state,
             totalUsersCount: action.totalUsersCount
+        }
+    } else if (action.type === actions.SET_FETCHING) {
+        return {
+            ...state,
+            isFetching: action.isFetching
         }
     }
 
