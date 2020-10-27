@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
+import {Preloader} from "../../common/Preloader/Preloader";
+import userPhoto from '../../../assets/images/user.jpeg';
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+    debugger
+    if (!props.profile) {
+        return <Preloader />
+    }
     return (
         <div>
             <div>
-                <img src='https://pix10.agoda.net/hotelImages/301716/-1/fe9724d8fb4da3dd4590353bd771a276.jpg?s=1200x800'
-    alt='test'/>
+                <img src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt='test'/>
             </div>
             <div className={styles.descriptionBlock}>
                 <p>ava + description</p>

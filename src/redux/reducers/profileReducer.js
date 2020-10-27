@@ -5,7 +5,8 @@ let initialState = {
         {id: 1, message: 'Hi, how are you?', image: 'https://i.imgur.com/ISw0Bxz.jpeg'},
         {id: 2, message: 'It\'s my post', image: 'https://i.imgur.com/l0FED10.jpeg'}
     ],
-    newPostText: 'it'
+    newPostText: 'it',
+    profile: null
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ export const profileReducer = (state = initialState, action) => {
         return {
             ...state,
             newPostText: action.newText
+        };
+    } else if (action.type === actions.SET_USER_PROFILE) {
+        return {
+            ...state,
+            profile: action.profile
         };
     }
 

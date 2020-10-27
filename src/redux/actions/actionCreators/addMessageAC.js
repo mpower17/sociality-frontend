@@ -1,4 +1,4 @@
-export const addMessageAC = (text) => ({
+export const addMessage = (text) => ({
     type: "ADD_MESSAGE",
     message: text
 })

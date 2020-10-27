@@ -1,13 +1,13 @@
 import {Users} from "./Users";
 import React from "react";
 import axios from "axios";
-import {followAC} from "../../redux/actions/actionCreators/followAC";
-import {unfollowAC} from "../../redux/actions/actionCreators/unfollowAC";
-import {setUsersAC} from "../../redux/actions/actionCreators/setUsersAC";
-import {setCurrentPageAC} from "../../redux/actions/actionCreators/setCurrentPageACr";
-import {setTotalUsersCountAC} from "../../redux/actions/actionCreators/setTotalUsersCountAC";
+import {follow} from "../../redux/actions/actionCreators/followAC";
+import {unfollow} from "../../redux/actions/actionCreators/unfollowAC";
+import {setUsers} from "../../redux/actions/actionCreators/setUsersAC";
+import {setCurrentPage} from "../../redux/actions/actionCreators/setCurrentPageACr";
+import {setTotalUsersCount} from "../../redux/actions/actionCreators/setTotalUsersCountAC";
 import {connect} from "react-redux";
-import {setFetchingAC} from "../../redux/actions/actionCreators/setFetchingAC";
+import {setFetching} from "../../redux/actions/actionCreators/setFetchingAC";
 import {Preloader} from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
@@ -56,27 +56,11 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber));
-        },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount));
-        },
-        setFetching: (isFetching) => {
-            dispatch(setFetchingAC(isFetching))
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    setFetching
+})(UsersContainer);
